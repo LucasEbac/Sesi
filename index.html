@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Cursos - CTED</title>
+    <link rel="stylesheet" href="generate_styles.py">
+</head>
+<body>
+
+    <!-- Cabeçalho Acessível -->
+    <header class="main-header">
+        <div class="container">
+            <h1 class="logo">CTED <span>Educação Digital</span></h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Seção de Filtros e Busca -->
+        <section aria-label="Painel de filtros e busca" class="filters-section">
+            <div class="filter-group flex-1">
+                <label for="search">Pesquisar curso</label>
+                <input type="text" id="search" placeholder="Digite o nome ou sigla...">
+            </div>
+
+            <div class="filter-group">
+                <label for="categoria">Categoria</label>
+                <select id="categoria">
+                    <option value="">Todas</option>
+                    <option value="Tecnologia">Tecnologia</option>
+                    <option value="Gestão">Gestão</option>
+                    <option value="Design">Design</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="modalidade">Modalidade</label>
+                <select id="modalidade">
+                    <option value="">Todas</option>
+                    <option value="EAD">EAD</option>
+                    <option value="Presencial">Presencial</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="status">Status</label>
+                <select id="status">
+                    <option value="">Todos</option>
+                    <option value="Inscrições Abertas">Inscrições Abertas</option>
+                    <option value="Em Andamento">Em Andamento</option>
+                    <option value="Brevemente">Brevemente</option>
+                </select>
+            </div>
+
+            <button type="button" id="btn-limpar" class="btn-secondary">Limpar</button>
+        </section>
+
+        <!-- Contador de Resultados (Atualizado via JS) -->
+        <div role="status" aria-live="polite" id="counter" class="results-counter">
+            Carregando cursos...
+        </div>
+
+        <!-- Estados de Erro ou Feedback (Ocultos por padrão) -->
+        <div id="feedback-message" class="feedback-message hidden" role="alert"></div>
+
+        <!-- Grid de Catálogo de Cursos -->
+        <section id="catalog-grid" class="catalog-grid" aria-label="Listagem de cursos">
+            <!-- Os cards e skeletons serão injetados via JavaScript aqui -->
+        </section>
+    </main>
+
+    <!-- Modal de Detalhes do Curso (Obrigatório) -->
+    <div id="course-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1">
+        <div class="modal-content">
+            <button type="button" class="close-modal" id="close-modal" aria-label="Fechar modal">&times;</button>
+            <div id="modal-body">
+                <!-- Conteúdo dinâmico inserido via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts do Sistema -->
+    <script src="js/mockData.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
