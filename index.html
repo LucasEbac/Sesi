@@ -3,85 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo de Cursos - CTED</title>
-    <link rel="stylesheet" href="generate_styles.py">
+    <title>SESI + INDÚSTRIA - Impulsione sua carreira</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
 
-    <!-- Cabeçalho Acessível -->
-    <header class="main-header">
-        <div class="container">
-            <h1 class="logo">CTED <span>Educação Digital</span></h1>
+    <header class="hero-section">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">SESI<span>+INDÚSTRIA</span></div>
+                <div class="nav-menu">
+                    <a href="#inicio" class="active">Início</a>
+                    <a href="#cursos">Cursos</a>
+                    <a href="#sobre">Sobre</a>
+                    <a href="#aluno" class="btn-aluno">Área do aluno</a>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="hero-content">
+            <h1>Impulsione<br>sua carreira<br>na indústria</h1>
+            <p>Amplie seus conhecimentos com excelência na melhor plataforma de estudos da indústria brasileira</p>
+            <a href="#cursos" class="btn-cta">Conhecer cursos <i class="fas fa-arrow-right"></i></a>
         </div>
     </header>
 
-    <main class="container">
-        <!-- Seção de Filtros e Busca -->
-        <section aria-label="Painel de filtros e busca" class="filters-section">
-            <div class="filter-group flex-1">
-                <label for="search">Pesquisar curso</label>
-                <input type="text" id="search" placeholder="Digite o nome ou sigla...">
+    <section id="cursos" class="courses-section scroll-anim">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Principais cursos</h2>
+                <div class="carousel-controls">
+                    <button class="carousel-btn prev-btn" id="course-prev"><i class="fas fa-arrow-left"></i></button>
+                    <button class="carousel-btn next-btn" id="course-next"><i class="fas fa-arrow-right"></i></button>
+                </div>
             </div>
+            
+            <div class="carousel-wrapper">
+                <div class="carousel-track" id="course-track">
+                    <div class="course-card" onclick="openModal('Matemática para a Precisão: Medidas e Escalas na Metalurgia', 'Matemática', 'Aplicação de grandezas, proporções e escalas em processos de corte, furação e usinagem.', '20 horas')">
+                        <div class="card-bg" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(146,14,14,0.95)), url('https://unsplash.com');"></div>
+                        <span class="category-tag tag-math">MATEMÁTICA</span>
+                        <div class="card-content">
+                            <h3>Matemática para a Precisão: Medidas e Escalas na Metalurgia</h3>
+                            <p>Aplicação de grandezas, proporções e escalas em processos de corte, furação e usinagem.</p>
+                        </div>
+                    </div>
 
-            <div class="filter-group">
-                <label for="categoria">Categoria</label>
-                <select id="categoria">
-                    <option value="">Todas</option>
-                    <option value="Tecnologia">Tecnologia</option>
-                    <option value="Gestão">Gestão</option>
-                    <option value="Design">Design</option>
-                </select>
+                    <div class="course-card" onclick="openModal('Geometria e Modelagem no Design Têxtil', 'Matemática', 'Explora formas geométricas, simetria e padrões matemáticos presentes em tecidos e estampas.', '30 horas')">
+                        <div class="card-bg" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(146,14,14,0.95)), url('https://unsplash.com');"></div>
+                        <span class="category-tag tag-math">MATEMÁTICA</span>
+                        <div class="card-content">
+                            <h3>Geometria e Modelagem no Design Têxtil</h3>
+                            <p>Explora formas geométricas, simetria e padrões matemáticos presentes em tecidos e estampas.</p>
+                        </div>
+                    </div>
+
+                    <div class="course-card" onclick="openModal('Estatística e Controle de Qualidade na Produção', 'Matemática', 'Leitura e interpretação de dados de controle de qualidade e produtividade.', '25 horas')">
+                        <div class="card-bg" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(146,14,14,0.95)), url('https://unsplash.com');"></div>
+                        <span class="category-tag tag-math">MATEMÁTICA</span>
+                        <div class="card-content">
+                            <h3>Estatística e Controle de Qualidade na Produção</h3>
+                            <p>Leitura e interpretação de dados de controle de qualidade e produtividade.</p>
+                        </div>
+                    </div>
+
+                    <div class="course-card" onclick="openModal('Física do Movimento e da Energia na Metalurgia', 'Ciências da Natureza', 'Estudo de forças, atrito, calor e energia em máquinas, fornos e prensas.', '40 horas')">
+                        <div class="card-bg" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(146,14,14,0.95)), url('https://unsplash.com');"></div>
+                        <span class="category-tag tag-science">CIÊNCIAS DA NATUREZA</span>
+                        <div class="card-content">
+                            <h3>Física do Movimento e da Energia na Metalurgia</h3>
+                            <p>Estudo de forças, atrito, calor e energia em máquinas, fornos e prensas.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <div class="filter-group">
-                <label for="modalidade">Modalidade</label>
-                <select id="modalidade">
-                    <option value="">Todas</option>
-                    <option value="EAD">EAD</option>
-                    <option value="Presencial">Presencial</option>
-                </select>
-            </div>
-
-            <div class="filter-group">
-                <label for="status">Status</label>
-                <select id="status">
-                    <option value="">Todos</option>
-                    <option value="Inscrições Abertas">Inscrições Abertas</option>
-                    <option value="Em Andamento">Em Andamento</option>
-                    <option value="Brevemente">Brevemente</option>
-                </select>
-            </div>
-
-            <button type="button" id="btn-limpar" class="btn-secondary">Limpar</button>
-        </section>
-
-        <!-- Contador de Resultados (Atualizado via JS) -->
-        <div role="status" aria-live="polite" id="counter" class="results-counter">
-            Carregando cursos...
-        </div>
-
-        <!-- Estados de Erro ou Feedback (Ocultos por padrão) -->
-        <div id="feedback-message" class="feedback-message hidden" role="alert"></div>
-
-        <!-- Grid de Catálogo de Cursos -->
-        <section id="catalog-grid" class="catalog-grid" aria-label="Listagem de cursos">
-            <!-- Os cards e skeletons serão injetados via JavaScript aqui -->
-        </section>
-    </main>
-
-    <!-- Modal de Detalhes do Curso (Obrigatório) -->
-    <div id="course-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1">
-        <div class="modal-content">
-            <button type="button" class="close-modal" id="close-modal" aria-label="Fechar modal">&times;</button>
-            <div id="modal-body">
-                <!-- Conteúdo dinâmico inserido via JS -->
+            
+            <div class="center-btn-wrapper">
+                <a href="#todos-cursos" class="btn-secondary">Ver todos os cursos</a>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Scripts do Sistema -->
-    <script src="js/mockData.js"></script>
-    <script src="js/api.js"></script>
-    <script src="js/app.js"></script>
-</body>
-</html>
+    <section id="sobre" class="impact-section scroll-anim">
+        <div class="impact-container">
+            <div class="impact-left">
+                <h2>Impacto<br>transformador</h2>
+                <p>Resultados que demonstram o sucesso da nossa metodologia de capacitação contínua para a indústria.</p>
+            </div>
+            <div class="impact-right">
+                <div class="stat-row">
+                    <span class="stat-number">25.000+</span>
+                    <span class="stat-label">Profissionais Capacitados</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Empresas parceiras</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-number">4.8/5</span>
+                    <span class="stat-label">Avaliação média</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-number">2.5M+</span>
+                    <span class="stat-label">Horas de capacitação</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="pillars-container scroll-anim">
+            <div class="pillar-card">
+                <div class="pillar-icon-box">
+                    <i class="fas fa-award"></i>
+                </div>
+                <h3>Certificação SESI</h3>
+                <p>Cursos com a melhor certificação do mercado industrial reconhecidos pelo SESI.</p>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-icon-box">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3>Professores especialistas</h3>
+                <p>Contamos com professores reconhecidos por sua excelência no mercado.</p>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-icon-box">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h3>Suporte contínuo</h3>
+                <p>Você não está sozinho! Acompanhamento online durante todo o curso.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section scroll-anim">
+        <div class="section-container">
+            <div class="section-header white-text">
+                <div>
+                    <span class="sub-title">DEPOIMENTOS</span>
+                    <h2>Quem fez recomenda</h2>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-btn prev-btn white-btn" id="testi-prev"><i class="fas fa-arrow-left"></i></button>
+                    <button class="carousel-btn next-btn white-btn" id="testi-next"><i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="carousel-wrapper">
+                <div class="carousel-track" id="testi-track">
+                    <div class="testimonial-card">
+                        <p class="testi-text">"A experiência do curso foi incrível! As aulas foram muito bem estruturadas e o cronograma foi cuidadosamente planejado, facilitando muito o aprendizado."</p>
+                        <div class="testi-footer">
+                            <h4 class="testi-name">Lucas Pereira</h4>
+                            <span class="testi-role">Analista na Empresa X</span>
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="testi-text">"Concluir o curso foi uma jornada enriquecedora. As aulas eram dinâmicas e o horário foi organizado para maximizar nosso tempo de estudo."</p>
+                        <div class="testi-footer">
